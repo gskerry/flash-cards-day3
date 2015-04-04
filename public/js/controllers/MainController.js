@@ -1,6 +1,7 @@
 app.controller('MainController', function ($scope, FlashCardsFactory) {
 
     $scope.flashCards = [];
+    $scope.newform = false;
 
     $scope.categories = [
         'MongoDB',

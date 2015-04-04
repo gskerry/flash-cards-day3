@@ -30,38 +30,36 @@
         <div ng-include="'templates/stats.html'">
         </div>
         
+        <div ng-controller="MainController">
+           
+            <div ng-controller="FormController">
+                <button ng-click="showform()" >New Card</button>
 
-        <div ng-controller="FormController">
-            <button ng-click="showform()" >New Card</button>
+                <new-form ng-show="newform"></new-form>
 
-            <new-form ng-show="newform"></new-form>
-
-        </div>
-
-        
-
-        <div ng-show="!newform" ng-controller="MainController">
-           <!--  <p>"WHERE'S OUR LOADER?!?!?!</p> -->
-            
-            <button ng-click="getAllCards()" ng-class="{ active: chosenCategory === 'All' }">All Categories</button>
-
-            <button
-                    ng-repeat="category in categories"
-                    ng-click="getCategoryCards(category)"
-                    ng-class="{ active: chosenCategory === category }">
-                {{ category }}
-            </button>
-
-            <div>
-                <loader ng-show="loading"></loader>    
             </div>
 
-            <div ng-repeat="flashCard in flashCards | orderBy:'question'"
-                ng-show="!loading"
-                data-hover-border
-                class="flash-card">            
-                <flash-card card="flashCard"></flash-card>
-            </div>            
+            <div ng-show="!newform">
+                <button ng-click="getAllCards()" ng-class="{ active: chosenCategory === 'All' }">All Categories</button>
+
+                <button
+                        ng-repeat="category in categories"
+                        ng-click="getCategoryCards(category)"
+                        ng-class="{ active: chosenCategory === category }">
+                    {{ category }}
+                </button>
+
+                <div>
+                    <loader ng-show="loading"></loader>    
+                </div>
+
+                <div ng-repeat="flashCard in flashCards | orderBy:'question'"
+                    ng-show="!loading"
+                    data-hover-border
+                    class="flash-card">            
+                    <flash-card card="flashCard"></flash-card>
+                </div>                
+            </div>
 
         </div>
 
