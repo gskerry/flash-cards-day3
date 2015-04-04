@@ -15,6 +15,7 @@
         <script src="js/filters/cheat-filter.js"></script>
         <script src="js/directives/loader/loader.js"></script>
         <script src="js/directives/flash-card/flash-card.js"></script>
+        <script src="js/directives/hover-border/hover-border.js"></script>
     </head>
 
     <body ng-app="FlashCards">
@@ -38,6 +39,7 @@
 
             <div ng-repeat="flashCard in flashCards | orderBy:'question'"
                 ng-show="!loading"
+                data-hover-border
                 class="flash-card">            
                 <flash-card card="flashCard"></flash-card>
             </div>            
