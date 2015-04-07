@@ -19,7 +19,9 @@ app.factory('FlashCardsFactory', function ($http) {
         },
 
         postFlashCards: function (userInput) {
-            return $http.post('/cards', {
+            return $http.post('/cards', userInput
+
+            /*{
                 question: "How do we build this object?",
                 category: "MongoDB",
                 answers: [
@@ -27,7 +29,9 @@ app.factory('FlashCardsFactory', function ($http) {
                     { text: "With wizardry", correct: false },
                     { text: "With ng-model", correct: true }
                 ]
-            }).success(function(response) {
+            }*/
+
+            ).success(function(response) {
                 console.log('RESPONSE' + response);
             }).catch(function(err)
             {

@@ -38,15 +38,30 @@ app.get('/cards', function (req, res) {
 });
 
 
+/*app.post('/cards', function (req, res, next) {
+
+    // Reference schema for what is expected as the POST body.
+    var cardData = req.body;
+    // res.json(cardData);
+    // console.log(cardData);
+
+    FlashCardModel.create(cardData, function (err, card) {
+        if (err) return next(err);
+        // if next not passed in/defined... express has a default... 
+        // send a status 500 and console the error... 
+        res.json(card);
+    });
+
+});*/
+
+
 app.post('/cards', function (req, res, next) {
 
     // Reference schema for what is expected as the POST body.
     var cardData = req.body;
 
-    FlashCardModel.create(cardData).then(function (err, card) {
+    FlashCardModel.create(cardData, function (err, card) {
         if (err) return next(err);
-        // if next not passed in/defined... express has a default... 
-        // send a status 500 and console the error... 
         res.json(card);
     });
 
